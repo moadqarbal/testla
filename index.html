@@ -160,6 +160,53 @@
             background: #1d4ed8;
         }
 
+        /* --- NEW FEATURE BOXES SECTION --- */
+        #features {
+            min-height: auto; /* Overriding 100vh for this section */
+            padding: 80px 8%;
+            background-color: var(--white);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: left;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: var(--white);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
         /* --- SECTION 2: ABOUT --- */
         #about {
             background-color: var(--white);
@@ -272,6 +319,7 @@
             <a href="#" class="logo">CREATIVE.CO</a>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
+                <li><a href="#features">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -284,6 +332,32 @@
         <h1>Building Digital Excellence.</h1>
         <p>I help businesses grow by creating stunning, high-performance websites and digital experiences that convert.</p>
         <a href="#contact" class="btn">Get Started Now</a>
+    </section>
+
+    <!-- SECTION: FEATURE BOXES -->
+    <section id="features">
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🚀</span>
+                <h3>Speed Optimized</h3>
+                <p>Lightning fast load times to keep your users engaged and improve your SEO rankings significantly.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Fully Responsive</h3>
+                <p>Your site will look perfect on every device, from the smallest smartphone to the largest desktop.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Custom Design</h3>
+                <p>Unique visual identities tailored specifically to your brand, ensuring you stand out from the crowd.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Secure Coding</h3>
+                <p>Built with industry-standard security practices to keep your data and your users safe.</p>
+            </div>
+        </div>
     </section>
 
     <!-- SECTION 2: ABOUT -->
