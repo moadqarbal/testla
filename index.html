@@ -10,12 +10,12 @@
         /* -- RESET & VARIABLES -- */
         :root {
             --primary-color: #2563eb;
-            --accent-color: #f59e0b; /* Consultation */
+            --accent-color: #f59e0b;
             --dark-color: #1e293b;
             --light-bg: #f8fafc;
             --text-main: #334155;
             --white: #ffffff;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -55,12 +55,6 @@
             letter-spacing: 1px;
         }
 
-        .top-bar span {
-            text-decoration: underline;
-            cursor: pointer;
-            margin-left: 5px;
-        }
-
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -97,10 +91,10 @@
             color: var(--primary-color);
         }
 
-        /* --- SECTION STYLING (FULL PAGE) --- */
+        /* --- SECTION STYLING --- */
         section {
             padding: 100px 8%;
-            min-height: 100vh; /* This makes sections full page */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -110,7 +104,7 @@
 
         h2 {
             font-size: 2.5rem;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             color: var(--dark-color);
             position: relative;
         }
@@ -153,6 +147,7 @@
             font-weight: 600;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            display: inline-block;
         }
 
         .btn:hover {
@@ -160,9 +155,9 @@
             background: #1d4ed8;
         }
 
-        /* --- NEW FEATURE BOXES SECTION --- */
+        /* --- FEATURE BOXES --- */
         #features {
-            min-height: auto; /* Overriding 100vh for this section */
+            min-height: auto;
             padding: 80px 8%;
             background-color: var(--white);
         }
@@ -181,126 +176,108 @@
             border-radius: 20px;
             text-align: left;
             transition: var(--transition);
-            border: 1px solid transparent;
         }
 
         .feature-card:hover {
             background: var(--white);
-            border-color: var(--primary-color);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transform: translateY(-5px);
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
-        }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
 
-        .feature-card h3 {
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-
-        .feature-card p {
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-
-        /* --- SECTION 2: ABOUT --- */
-        #about {
-            background-color: var(--white);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            max-width: 1000px;
-            text-align: left;
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            display: block;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        /* --- SECTION 3: PROJECTS --- */
+        /* --- SECTION 3: PROJECTS (9 ITEMS) --- */
         #projects {
-            background-color: var(--light-bg);
+            background-color: #f1f5f9;
+            padding: 100px 5%;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             width: 100%;
-            max-width: 1100px;
+            max-width: 1300px;
         }
 
-        .card {
+        .project-card {
             background: var(--white);
             border-radius: 15px;
-            padding: 20px;
+            overflow: hidden;
+            position: relative;
             transition: var(--transition);
-            border: 1px solid #e2e8f0;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        /* --- SECTION 4: CONTACT --- */
-        #contact {
-            background-color: var(--dark-color);
-            color: white;
-        }
-
-        #contact h2 {
-            color: white;
-        }
-
-        form {
+        .project-img-container {
             width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
         }
 
-        input, textarea {
-            padding: 15px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
         }
 
-        footer {
-            padding: 20px;
-            text-align: center;
-            background: #0f172a;
-            color: #94a3b8;
+        .project-card:hover .project-img-container img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-category {
+            display: inline-block;
+            background: #dbeafe;
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
             font-size: 0.9rem;
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- SECTION 2: ABOUT --- */
+        #about { background-color: var(--white); }
+        .about-content { display: flex; align-items: center; gap: 50px; max-width: 1000px; text-align: left; }
+        .about-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .about-image img { width: 100%; display: block; }
+        .about-text { flex: 1; }
+
+        /* --- SECTION 4: CONTACT --- */
+        #contact { background-color: var(--dark-color); color: white; }
+        #contact h2 { color: white; }
+        form { width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { padding: 15px; border-radius: 8px; border: none; outline: none; }
+
+        footer { padding: 20px; text-align: center; background: #0f172a; color: #94a3b8; font-size: 0.9rem; }
+
         @media (max-width: 768px) {
             #hero h1 { font-size: 2.5rem; }
             .about-content { flex-direction: column; text-align: center; }
@@ -310,53 +287,173 @@
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
-        <div class="top-bar">
-            🎉 Limited Time: <span>Book Your Free Consultation Today!</span>
-        </div>
+        <div class="top-bar">🎉 Limited Time: <span>Book Your Free Consultation Today!</span></div>
         <nav>
             <a href="#" class="logo">CREATIVE.CO</a>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#features">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- SECTION 1: HERO -->
     <section id="hero">
         <h1>Building Digital Excellence.</h1>
         <p>I help businesses grow by creating stunning, high-performance websites and digital experiences that convert.</p>
         <a href="#contact" class="btn">Get Started Now</a>
     </section>
 
-    <!-- SECTION: FEATURE BOXES -->
     <section id="features">
         <div class="feature-grid">
             <div class="feature-card">
                 <span class="feature-icon">🚀</span>
                 <h3>Speed Optimized</h3>
-                <p>Lightning fast load times to keep your users engaged and improve your SEO rankings significantly.</p>
+                <p>Lightning fast load times to keep your users engaged and improve SEO.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">📱</span>
                 <h3>Fully Responsive</h3>
-                <p>Your site will look perfect on every device, from the smallest smartphone to the largest desktop.</p>
+                <p>Your site will look perfect on every device, from mobile to desktop.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">🎨</span>
                 <h3>Custom Design</h3>
-                <p>Unique visual identities tailored specifically to your brand, ensuring you stand out from the crowd.</p>
+                <p>Unique visual identities tailored specifically to your business goals.</p>
             </div>
             <div class="feature-card">
                 <span class="feature-icon">🔒</span>
                 <h3>Secure Coding</h3>
-                <p>Built with industry-standard security practices to keep your data and your users safe.</p>
+                <p>Built with industry-standard security practices to keep your data safe.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: 9 WELL DESIGNED PROJECTS -->
+    <section id="projects">
+        <h2>Our Latest Work</h2>
+        <div class="project-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Project 1">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Fintech</span>
+                    <h3>Nova Banking App</h3>
+                    <p>A modern financial dashboard with real-time stock tracking and crypto integration.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=600&q=80" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">E-Commerce</span>
+                    <h3>Zenith Lifestyle</h3>
+                    <p>A high-conversion fashion store featuring a seamless checkout and AI styling.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Project 3">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">SaaS</span>
+                    <h3>Metrics Cloud</h3>
+                    <p>Advanced data visualization tool for marketing teams to track ROI across channels.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173bdb999ef?auto=format&fit=crop&w=600&q=80" alt="Project 4">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Healthcare</span>
+                    <h3>VitalCare Portal</h3>
+                    <p>Secure patient management system for hospitals with integrated telemedicine.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1503387762-592dea58ef21?auto=format&fit=crop&w=600&q=80" alt="Project 5">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Real Estate</span>
+                    <h3>Urban Nest</h3>
+                    <p>Luxury property listing platform with 3D virtual tours and agent management.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80" alt="Project 6">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Web3</span>
+                    <h3>EtherArt Market</h3>
+                    <p>An NFT marketplace built on Ethereum with low-gas minting and social features.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=600&q=80" alt="Project 7">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Cybersecurity</span>
+                    <h3>Shield Guardian</h3>
+                    <p>Corporate landing page for an AI-driven threat detection software suite.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Project 8">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Education</span>
+                    <h3>Learnly LMS</h3>
+                    <p>Interactive learning platform with gamified progress tracking for K-12 students.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=80" alt="Project 9">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">Productivity</span>
+                    <h3>Flow Planner</h3>
+                    <p>A minimal task management app focused on deep work and pomodoro timers.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -375,26 +472,7 @@
         </div>
     </section>
 
-    <!-- SECTION 3: PROJECTS -->
-    <section id="projects">
-        <h2>Latest Work</h2>
-        <div class="project-grid">
-            <div class="card">
-                <h3>E-Commerce Suite</h3>
-                <p>A full-scale online store with integrated payments and inventory management.</p>
-            </div>
-            <div class="card">
-                <h3>HealthTech App</h3>
-                <p>Real-time patient monitoring dashboard for modern clinics.</p>
-            </div>
-            <div class="card">
-                <h3>SaaS Analytics</h3>
-                <p>A data visualization tool for tracking marketing ROI automatically.</p>
-            </div>
-        </div>
-    </section>
-
-    
+    <!-- SECTION 4: CONTACT -->
     <section id="contact">
         <h2>Work With Me</h2>
         <p style="margin-bottom: 20px;">Ready to start your project? Let's talk during your free consultation.</p>
@@ -406,7 +484,6 @@
         </form>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         &copy; 2024 Creative.Co Portfolio | All Rights Reserved.
     </footer>
